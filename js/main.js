@@ -7,7 +7,7 @@
 // имя_функции(от, до); // Результат: целое число из диапазона "от...до"
 // Учтите, что диапазон может быть только положительный, включая ноль. А также придумайте, как функция должна вести себя, если передать значение «до» меньшее, чем значение «от», или равное ему.
 
-function getRandomFromRange(min, max) {
+const getRandomFromRange = (min, max) => {
   let switcher;
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -18,7 +18,7 @@ function getRandomFromRange(min, max) {
   }
 
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
 getRandomFromRange(8, 4);
 
@@ -26,12 +26,7 @@ getRandomFromRange(8, 4);
 
 // имя_функции(проверяемая_строка, максимальная_длина); Результат: true, если строка проходит по длине, и false — если не проходит
 
-function getMaxLength(line, maxLength) {
-  if (line.length > maxLength) {
-    return false;
-  }
-  return true;
-}
+const getMaxLength = (line, maxLength) => line.length <= maxLength;
 
 const lines = 'оо';
 const length = 3;
