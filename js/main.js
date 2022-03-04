@@ -24,37 +24,55 @@ const getRandomFromRange = (a, b) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-getRandomFromRange(8, 4);
-
 const getMaxLength = (line, maxLength) => line.length <= maxLength;
 
 const lines = 'оо';
 const length = 3;
 getMaxLength(lines, length);
 
-const DESCRIPTION = ['Фото с отдыха', 'Сижу на работе', 'После долгого дня'];
+const DESCRIPTIONS = ['Фото с отдыха', 'Сижу на работе', 'После долгого дня'];
 
 const MESSAGES = ['Все отлично!', 'В целом всё неплохо.', 'Но не всё.', 'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.', 'В конце концов это просто непрофессионально.', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают. ', 'Как можно было поймать такой неудачный момент?!'];
 
 const NAMES = ['Петя', 'Вася', 'Коля'];
 
+const RANDOM_COMMENT_ID_COUNT_MIN = 0;
+const RANDOM_COMMENT_ID_COUNT_MAX = 999;
+
+const RANDOM_COMMENT_COUNT_MIN = 1;
+const RANDOM_COMMENT_COUNT_MAX = 3;
+
+const RANDOM_MIN_AVATAR_COUNT = 1;
+const RANDOM_MAX_AVATAR_COUNT = 6;
+
+const RANDOM_LIKES_COUNT_MIN = 15;
+const RANDOM_LIKES_COUNT_MAX = 200;
+
+const RANDOM_OBJECTS_COUNT_MIN = 0;
+const RANDOM_OBJECTS_COUNT_MAX = 25;
+
+const RANDOM_MIN_MESSAGE_COUNT = 1;
+const RANDOM_MAX_MESSAGE_COUNT = 2;
+
+
 const getMessage = (numberOfMessages) => {
-  if (numberOfMessages === 2) {
-    return MESSAGES[getRandomFromRange(0, MESSAGES.length - 1)] + MESSAGES[getRandomFromRange(0, MESSAGES.length - 1)];
+  let message = '';
+  for (let i = 0; i <= numberOfMessages - 1; i++) {
+    message = message + MESSAGES[getRandomFromRange(0, MESSAGES.length - 1)];
   }
-  else { return MESSAGES[getRandomFromRange(0, MESSAGES.length - 1)]; }
+  return message;
 };
+
 //генерирует одно или два сообщения
-//const keys = ['id', 'avatar', 'message', 'name'];
 
 const getRandomComment = (numberOfComments) => {
   const commentArr = [];
-  const randomCommId = getRandomFromRange(1, 999);
-  for (let i = 0; i <= numberOfComments - 1; i++) {
+  const randomCommId = getRandomFromRange(RANDOM_COMMENT_ID_COUNT_MIN, RANDOM_COMMENT_ID_COUNT_MAX);
+  for (let i = 1; i <= numberOfComments; i++) {
     const comment = {
       id: randomCommId + i,
-      avatar: `img/avatar-${getRandomFromRange(1, 6)}.svg`,
-      message: getMessage(getRandomFromRange(1, 2)),
+      avatar: `img/avatar-${getRandomFromRange(RANDOM_MIN_AVATAR_COUNT, RANDOM_MAX_AVATAR_COUNT)}.svg`,
+      message: getMessage(getRandomFromRange(RANDOM_MIN_MESSAGE_COUNT, RANDOM_MAX_MESSAGE_COUNT)),
       name: NAMES[getRandomFromRange(0, NAMES.length - 1)],
     };
     commentArr.push(comment);
@@ -62,23 +80,21 @@ const getRandomComment = (numberOfComments) => {
   return commentArr;
 };
 
-getRandomComment(2);
-
 const getRandomObjects = (numberOfObjects) => {
   const objectArr = [];
-  const randomObjCounter = getRandomFromRange(1, 25 - numberOfObjects);
+  const randomObjCounter = getRandomFromRange(RANDOM_OBJECTS_COUNT_MIN, RANDOM_OBJECTS_COUNT_MAX - numberOfObjects);
   for (let i = 1; i <= numberOfObjects; i++) {
     const object = {
       id: randomObjCounter + i,
       url: `photos/${randomObjCounter + i}.jpg`,
-      description: DESCRIPTION[getRandomFromRange(0, NAMES.length - 1)],
-      likes: getRandomFromRange(15, 200),
-      comments: getRandomComment(getRandomFromRange(1, 3)),
+      description: DESCRIPTIONS[getRandomFromRange(0, NAMES.length - 1)],
+      likes: getRandomFromRange(RANDOM_LIKES_COUNT_MIN, RANDOM_LIKES_COUNT_MAX),
+      comments: getRandomComment(getRandomFromRange(RANDOM_COMMENT_COUNT_MIN, RANDOM_COMMENT_COUNT_MAX)),
     };
     objectArr.push(object);
   }
   return objectArr;
 };
 
-getRandomObjects(25);
+getRandomObjects(RANDOM_OBJECTS_COUNT_MAX);
 
