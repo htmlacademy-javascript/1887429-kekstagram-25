@@ -1,4 +1,2 @@
-import { getRandomObjects } from './data';
-
-getRandomObjects(25);
+import './miniatures.js';
 
