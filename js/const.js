@@ -1,25 +1,22 @@
-const DESCRIPTIONS = ['Фото с отдыха', 'Сижу на работе', 'После долгого дня'];
+const WIDTH_AVATAR = '35';
+const HEIGHT_AVATAR = '35';
+const REG_EXP_HASHTAG = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+const REG_EXP_SPACES = /\s+/g;
+const MAX_LENGTH_COUNT_HASHTAGS = 5;
+const MAX_LENGTH_COMMENT = 140;
+const MAX_VISIBLE_COMMENTS = 5;
+const START_ARRAY_COMMENTS = 0;
+const MAX_VALUE_SCALE = 100;
+const MIN_VALUE_SCALE = 25;
+const SCALE_STEP = 25;
+const NOTATION = 10;
+const VALUE_ONE_HUNDRED = 100;
+const ALERT_SHOW_TIME = 5000;
+const MESSAGE_DOWNLOAD_MINIATURES = 'Ошибка загрузки миниатюр, возможно ресурс недоступен';
+const URL_MINIATURES = 'https://25.javascript.pages.academy/kekstagram/data';
+const URL_SUBMIT_FORM = 'https://25.javascript.pages.academy/kekstagram';
+const ACTIVE_CLASS_FILTER_BUTTON = 'img-filters__button--active';
+const RERENDER_DELAY = 500;
+const FILE_TYPES = ['jpg', 'jpeg', 'png', 'bmp'];
 
-const MESSAGES = ['Все отлично!', 'В целом всё неплохо.', 'Но не всё.', 'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.', 'В конце концов это просто непрофессионально.', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают. ', 'Как можно было поймать такой неудачный момент?!'];
-
-const NAMES = ['Петя', 'Вася', 'Коля'];
-
-const RANDOM_COMMENT_ID_COUNT_MIN = 0;
-const RANDOM_COMMENT_ID_COUNT_MAX = 999;
-
-const RANDOM_COMMENT_COUNT_MIN = 1;
-const RANDOM_COMMENT_COUNT_MAX = 3;
-
-const RANDOM_MIN_AVATAR_COUNT = 1;
-const RANDOM_MAX_AVATAR_COUNT = 6;
-
-const RANDOM_LIKES_COUNT_MIN = 15;
-const RANDOM_LIKES_COUNT_MAX = 200;
-
-const RANDOM_OBJECTS_COUNT_MIN = 0;
-const RANDOM_OBJECTS_COUNT_MAX = 25;
-
-const RANDOM_MIN_MESSAGE_COUNT = 1;
-const RANDOM_MAX_MESSAGE_COUNT = 2;
-
-export { DESCRIPTIONS, MESSAGES, NAMES, RANDOM_COMMENT_ID_COUNT_MIN, RANDOM_COMMENT_ID_COUNT_MAX, RANDOM_COMMENT_COUNT_MIN, RANDOM_COMMENT_COUNT_MAX, RANDOM_MIN_AVATAR_COUNT, RANDOM_MAX_AVATAR_COUNT, RANDOM_LIKES_COUNT_MIN, RANDOM_LIKES_COUNT_MAX, RANDOM_OBJECTS_COUNT_MIN, RANDOM_OBJECTS_COUNT_MAX, RANDOM_MIN_MESSAGE_COUNT, RANDOM_MAX_MESSAGE_COUNT };
+export {WIDTH_AVATAR, HEIGHT_AVATAR, REG_EXP_HASHTAG, MAX_LENGTH_COUNT_HASHTAGS, REG_EXP_SPACES, MAX_LENGTH_COMMENT, MAX_VISIBLE_COMMENTS, START_ARRAY_COMMENTS, MAX_VALUE_SCALE, MIN_VALUE_SCALE, SCALE_STEP, NOTATION, VALUE_ONE_HUNDRED, ALERT_SHOW_TIME, MESSAGE_DOWNLOAD_MINIATURES, URL_MINIATURES, URL_SUBMIT_FORM, ACTIVE_CLASS_FILTER_BUTTON, RERENDER_DELAY, FILE_TYPES};
